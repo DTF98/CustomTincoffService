@@ -1,6 +1,8 @@
 package com.DTF98.TinkoffService.controller;
 
+import com.DTF98.TinkoffService.dto.FigiesDto;
 import com.DTF98.TinkoffService.dto.StocksDTO;
+import com.DTF98.TinkoffService.dto.StocksPricesDto;
 import com.DTF98.TinkoffService.dto.TickersDTO;
 import com.DTF98.TinkoffService.model.Stock;
 import com.DTF98.TinkoffService.service.StockService;
@@ -20,5 +22,10 @@ public class StockController {
     @PostMapping("/stocks/getStocksByTickers")
     public StocksDTO getStocksByTicker(@RequestBody TickersDTO tickersDTO) {
         return stockService.getStocksByTickers(tickersDTO);
+    }
+
+    @PostMapping("/prices/")
+    public StocksPricesDto getPrices(@RequestBody FigiesDto figiesDto) {
+        return stockService.getPrices(figiesDto);
     }
 }
